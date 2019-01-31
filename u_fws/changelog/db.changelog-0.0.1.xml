@@ -5,19 +5,32 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-<!--
-	<changeSet author="tjmason" id="0.0.1-1">
-		<sqlFile path="./0.0.1/fmp.get_fmp_zones.sql" splitStatements="false"/>
+	
+	<changeSet author="tjmason (generated)" id="0.0.1-1">
+        	<createSequence sequenceName="message_id_seq"/>
+    	</changeSet>
+	  <changeSet author="tjmason" id="0.0.1-2">
+		<createTable tableName="message" schemaName="u_fws">
+		    <column name="id" type="BIGINT" defaultValue="nextval('message_id_seq'::regclass)"/>
+		    <column name="target_area_code" type="VARCHAR(200)"/>
+		    <column name="severity" type="VARCHAR(25)"/>
+		    <column name="severity_value" type="VARCHAR(25)"/>
+		    <column name="situation" type="TEXT"/>
+	    	    <column name="situation_changed" type="TIMESTAMP WITH TIME ZONE"/>
+		    <column name="severity_changed" type="TIMESTAMP WITH TIME ZONE"/>
+		    <column name="message_received" type="TIMESTAMP WITH TIME ZONE"/>
+		</createTable>
 		<rollback>
-			DROP FUNCTION fmp.get_fmp_zones(numerical, numerical, integer); 
+			DROP TABLE u_fws.message cascade; 
 		</rollback>	
-	</changeSet>
-
-	<changeSet author="tjmason" id="0.0.1-2">
-		<sqlFile path="./0.0.1/fmp.is_england.sql" splitStatements="false"/>
-		<rollback>
-			DROP FUNCTION fmp.is_england(numerical, numerical); 
-		</rollback>	
-	</changeSet>
--->
+	    </changeSet>
+	    <changeSet author="tjmason" id="0.0.1-3">
+		 <addPrimaryKey constraintName="message_pkey" tableName="message" columnNames="id" tablespace="fws_indexes" schemaName="cx"/>
+	    </changeSet>
+		<changeSet author="tjmason" id="0.0.1-4">
+			<createIndex indexName="idx_message_target_area_code" tableName="message">
+				<column name="target_area_code" type="VARCHAR(200)"/>
+			</createIndex>
+		</changeSet>
+	   
 </databaseChangeLog>
