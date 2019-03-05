@@ -1,8 +1,8 @@
--- Table: target_area
+-- Table: u_fws.target_area
 
--- DROP TABLE target_area;
+-- DROP TABLE u_fws.target_area;
 
-CREATE TABLE target_area
+CREATE TABLE u_fws.target_area
 (
   ta_id serial NOT NULL,
   ta_code character varying(20) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE target_area
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE target_area
+ALTER TABLE u_fws.target_area
   OWNER TO u_fws;
 
 -- Index: target_area_ta_code
@@ -29,9 +29,8 @@ ALTER TABLE target_area
 -- DROP INDEX target_area_ta_code;
 
 CREATE INDEX target_area_ta_code
-  ON target_area
+  ON u_fws.target_area
   USING btree
   (ta_code COLLATE pg_catalog."default")
 TABLESPACE fws_indexes;
-
 
