@@ -32,5 +32,16 @@
 				<column name="target_area_code" type="VARCHAR(200)"/>
 			</createIndex>
 		</changeSet>
-	   
+
+	<changeSet author="tjmason" id="0.0.1-11">
+		<sqlFile path="./0.0.1/target_area.sql" splitStatements="false"/>
+	</changeSet>
+	
+<!--
+to load data (not yet automated)
+psql ${FWS_DB_CONNECTION} -c "copy u_fws.target_area from stdin" < faa.sql
+
+psql ${FWS_DB_CONNECTION} -c "copy u_fws.target_area from stdin" < fwa.sql
+-->
+
 </databaseChangeLog>
