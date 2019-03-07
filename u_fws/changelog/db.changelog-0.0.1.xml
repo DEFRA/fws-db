@@ -36,6 +36,10 @@
 	<changeSet author="tjmason" id="0.0.1-11">
 		<sqlFile path="./0.0.1/target_area.sql" splitStatements="false"/>
 	</changeSet>
+
+	<changeSet author="tjmason" id="0.0.1-12">
+		<sqlFile path="./0.0.1/ta_code_fk.sql" splitStatements="false"/>
+	</changeSet>
 	
 <!--
 to load data (not yet automated)
