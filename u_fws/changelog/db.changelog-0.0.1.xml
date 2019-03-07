@@ -38,7 +38,7 @@
 	</changeSet>
 
 	<changeSet author="tjmason" id="0.0.1-12">
-		<sqlFile path="./0.0.1/ta_code_fk.sql" splitStatements="false"/>
+		<sqlFile path="./0.0.1/fk_tacode_message_target_area.sql" splitStatements="false"/>
 	</changeSet>
 	
 <!--
