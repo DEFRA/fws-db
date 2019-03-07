@@ -10,8 +10,8 @@ CREATE TABLE u_fws.api_key
     account_name text COLLATE pg_catalog."default" NOT NULL,
     read boolean,
     write boolean,
-    date_created date,
-    date_modified date,
+    date_created timestamp with time zone NOT NULL,
+    date_modified timestamp with time zone NOT NULL,
     modified_by text COLLATE pg_catalog."default",
     CONSTRAINT api_key_pkey PRIMARY KEY (api_key_id)
 )
