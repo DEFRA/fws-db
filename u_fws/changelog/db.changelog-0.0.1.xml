@@ -56,6 +56,9 @@ psql ${FWS_DB_CONNECTION} -c "copy u_fws.target_area from stdin" < fwa.sql
 Load in api keys from config files
 -->
 	
+	<changeSet author="tjmason" id="0.0.1-31">
+		<sqlFile path="./0.0.1/error_log.sql" splitStatements="false"/>
+	</changeSet>
 	
 
 </databaseChangeLog>
