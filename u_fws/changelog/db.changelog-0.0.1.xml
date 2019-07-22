@@ -73,6 +73,13 @@ Performance work with latest flag
 	<changeSet author="tjmason" id="0.0.1-43">
 		<sqlFile path="./0.0.1/message_trigger.sql" splitStatements="false"/>
 	</changeSet>
-	
+
+	<changeSet author="dstone" id="0.0.1-44">
+  	<addColumn catalogName="u_fws" schemaName="u_fws" tableName="message">
+			<column name="created_by_id" type="uuid"/>
+			<column name="created_by_email" type="varchar(255)"/>
+			<column name="created_by_name" type="varchar(255)"/>
+  	</addColumn>
+	</changeSet>
 
 </databaseChangeLog>
