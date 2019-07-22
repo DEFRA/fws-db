@@ -59,6 +59,20 @@ Load in api keys from config files
 	<changeSet author="tjmason" id="0.0.1-31">
 		<sqlFile path="./0.0.1/error_log.sql" splitStatements="false"/>
 	</changeSet>
+
+<!--
+Performance work with latest flag
+-->
+
+	<changeSet author="tjmason" id="0.0.1-41">
+		<sqlFile path="./0.0.1/message_latest_col.sql" splitStatements="false"/>
+	</changeSet>
+	<changeSet author="tjmason" id="0.0.1-42">
+		<sqlFile path="./0.0.1/idx_message_latest.sql" splitStatements="false"/>
+	</changeSet>
+	<changeSet author="tjmason" id="0.0.1-43">
+		<sqlFile path="./0.0.1/message_trigger.sql" splitStatements="false"/>
+	</changeSet>
 	
 
 </databaseChangeLog>
