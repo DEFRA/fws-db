@@ -4,7 +4,7 @@ CREATE TEMP TABLE tmp_target_area as Select * from u_fws.target_area LIMIT 0;
 
 -- Load new data to temp table
 
-\copy tmp_target_area(ta_code, ta_name, ta_description, quick_dial, version, state, ta_category, owner_area, created_date, last_modified_date) from /home/tedd/fws-db/target_area/target_areas.csv with delimiter as ',' CSV HEADER;
+\copy tmp_target_area(ta_code, ta_name, ta_description, quick_dial, version, state, ta_category, owner_area, created_date, last_modified_date) from ./target_areas.csv with delimiter as ',' CSV HEADER;
 
 -- Update all target_area to inactive
 
