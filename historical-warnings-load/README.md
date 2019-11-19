@@ -28,6 +28,8 @@ In order to load historical flood warning data into the new Flood Warning Inform
 
 The script produces a file that can the be uploaded into to database. The name of this file is the same as the input file but suffixed with `-transformed.csv`
 
+## NB: Only perform steps 4 & 5 if wanting to load history WITHOUT preserving warning messages that already exist in the u_fws.message table. Otherwise, proceed to step 6.
+
 4. In the FWS database clear down the `u_fws.message` table
 
 >
@@ -43,14 +45,19 @@ The script produces a file that can the be uploaded into to database. The name o
 6. Disable the trigger on the `u_fws.message` table
 
 >
-> `ALTER TABLE u_fws.message;`
-> `DISABLE TRIGGER trg_message_update_latest`
+> `ALTER TABLE u_fws.message DISABLE TRIGGER trg_message_update_latest`
 >
 
 7. Use the file created in step 3 as input to the COPY command. Run this command in the psql cli or pgadmin e.g.
 
+> for psql:
 >
 > `\copy u_fws.message(target_area_code,severity,severity_value,situation,situation_changed,severity_changed,message_received,latest,created_by_id,created_by_email,created_by_name) FROM `_`'<full path to transformed file created in step 3>'`_ `DELIMITER ',' CSV HEADER;`
+>
+
+> for pgadmin:
+>
+> `COPY u_fws.message(target_area_code,severity,severity_value,situation,situation_changed,severity_changed,message_received,latest,created_by_id,created_by_email,created_by_name) FROM `_`'<full path to transformed file created in step 3>'`_ `DELIMITER ',' CSV HEADER;`
 >
 
 8. On successful completion of step 7 run the `process_history()` pgsql function in the psql cli or pgadmin which ensures the most recent historical warning for a target area is not treated as the current warning.
@@ -58,7 +65,6 @@ The script produces a file that can the be uploaded into to database. The name o
 9. Enable the trigger on the `u_fws.message` table
 
 >
-> `ALTER TABLE u_fws.message;`
-> `ENABLE TRIGGER trg_message_update_latest`
+> `ALTER TABLE u_fws.message ENABLE TRIGGER trg_message_update_latest;`
 >
 

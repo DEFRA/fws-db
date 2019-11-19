@@ -42,7 +42,7 @@ const transform = csv.transform((row, cb) => {
     '"' + row[5] + '",' + // message_received
     false + ',' +         // latest
     ',' +
-    ',' +
+    ',' + 'History Load' +
     EOL
     
     cb(null, messageRow);
