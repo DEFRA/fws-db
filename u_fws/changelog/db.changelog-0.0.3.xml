@@ -5,11 +5,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+	
 
-
-  <include file="./changelog/db.changelog-0.0.1.xml" />
-  <include file="./changelog/db.changelog-0.0.2.xml" />
-  <include file="./changelog/db.changelog-0.0.3.xml" />
+	<changeSet author="ssrivastava" id="0.0.3-1">
+		<sqlFile path="./0.0.3/fis-471.sql" splitStatements="false"/>
+	</changeSet>
 
 
 </databaseChangeLog>
