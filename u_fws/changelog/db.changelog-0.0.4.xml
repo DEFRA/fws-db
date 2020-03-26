@@ -11,7 +11,7 @@
 		<loadData catalogName="catalogName"
 				  commentLineStartsWith="A String"
 				  encoding="UTF-8"
-				  file="path to the csv file generated in Step 3 eg: com/example/users.csv"
+				  file="path to the csv file ending with -transformed.csv generated in Step 3 eg: com/example/users.csv"
 				  quotchar="'"
 				  relativeToChangelogFile="true"
 				  schemaName="flood"
