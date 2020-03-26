@@ -8,7 +8,7 @@
 	
 
 	<changeSet author="ssrivastava" id="0.0.3-1">
-		<sqlFile path="./0.0.3/fis-471-A.sql" splitStatements="false"/>
+		<sqlFile path="./0.0.3/fis-471-C.sql" splitStatements="false"/>
 	</changeSet>
 
 

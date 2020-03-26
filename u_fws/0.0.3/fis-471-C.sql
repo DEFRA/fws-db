@@ -1,0 +1,1 @@
+ALTER TABLE u_fws.message ENABLE TRIGGER trg_message_update_latest;
