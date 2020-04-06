@@ -15,6 +15,7 @@
     "csv-parser": "^2.3.1",
     "csvjson": "^5.1.0",
     "csvtojson": "^2.0.8",
+    "moment-timezone": "^0.5.28",
     "stream-transform": "^2.0.1"
   },
   "devDependencies": {}

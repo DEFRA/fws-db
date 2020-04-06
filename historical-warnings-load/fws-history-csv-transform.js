@@ -28,9 +28,12 @@ const readStream = fs.createReadStream(fileIn)
 const writeStream = fs.createWriteStream(fileOut)
 const parse = csv.parse();
 
+const moment = require('moment-timezone')
+
 const transform = csv.transform((row, cb) => {
     
     row[4] = row[4].replace('Warning no', 'No')
+    row[5] = moment.tz(row[5], 'DD/MM/YYYY HH:mm:ss', 'Europe/London').toISOString()
     
     const messageRow =
     '"' + row[0] + '",' + // target_area_code
