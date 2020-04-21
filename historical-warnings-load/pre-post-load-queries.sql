@@ -28,7 +28,6 @@ from
     u_fws.message 
 where 
     created_by_name like '%History Load%' and
-    message_received > '2020-04-03'::date and
     message_received >= CURRENT_DATE and    
     message_received = situation_changed and
     message_received = severity_changed and
@@ -60,3 +59,5 @@ select count(*) as "All warnings grouped by severity", severity_value from u_fws
 select count(*) as "Non printable" FROM u_fws.message WHERE situation similar to '%[^\x00-\x7f]+%';
 
 select count(*) as "Non printable in history" FROM u_fws.message WHERE situation similar to '%[^\x00-\x7f]+%' and created_by_name like '%History Load%';
+
+select count(*) as "Warnings added with todays date", created_by_name from u_fws.message where message_received >= CURRENT_DATE group by created_by_name;
