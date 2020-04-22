@@ -21,13 +21,26 @@ It is strongly recommended to take a backup of the FWS database prior to perform
 
 NB: If the 'cleaned' csv file is unavailable then the process to create one is detailed [below](#create-cleaned-csv).
 
-3. Run the following psql command to copy the the historical data to the database:
+3. (Optional but advised). Run the following psql which performs a variety of queries producing database counts prior to history load:
+
+>
+> `psql <db connection string> -f ./pre-post-load-queries.sql > before-load.out`
+>
+
+4. Run the following psql command to copy the the historical data to the database:
 
 >
 > `psql <db connection string> -f ./import-and-process-historical-warnings.sql`
 >
 
-The syntax of the db connection string should be:
+5. (Optional but advised). Run the following psql which performs a variety of queries producing database counts prior to history load:
+
+>
+> `psql <db connection string> -f ./pre-post-load-queries.sql > after-load.out`
+>
+
+
+The syntax of the db connection strings above should be:
 
 >
 > `postgres://`_`<user>:<password>`_`@`_`<hostname>`_`:5432/`_`<dbname>`_
