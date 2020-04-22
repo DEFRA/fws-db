@@ -61,3 +61,21 @@ select count(*) as "Non printable" FROM u_fws.message WHERE situation similar to
 select count(*) as "Non printable in history" FROM u_fws.message WHERE situation similar to '%[^\x00-\x7f]+%' and created_by_name like '%History Load%';
 
 select count(*) as "Warnings added with todays date", created_by_name from u_fws.message where message_received >= CURRENT_DATE group by created_by_name;
+
+select count(*) as "Warnings today" from u_fws.message where message_received >= CURRENT_DATE;
+
+select count(*) as "Situation changed today" from u_fws.message where situation_changed >= CURRENT_DATE;
+
+select count(*) as "Severity changed today" from u_fws.message where severity_changed >= CURRENT_DATE;
+
+select count(*) as "Warnings yesterday" from u_fws.message where message_received >= CURRENT_DATE - 1 and message_received < CURRENT_DATE;
+
+select count(*) as "Situation changed yesterday" from u_fws.message where situation_changed >= CURRENT_DATE - 1 and situation_changed < CURRENT_DATE;
+
+select count(*) as "Severity changed yesterday" from u_fws.message where severity_changed >= CURRENT_DATE - 1 and severity_changed < CURRENT_DATE;
+
+\x on
+
+select * from u_fws.message where message_received >= CURRENT_DATE;
+
+\x off
