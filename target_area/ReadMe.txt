@@ -6,6 +6,8 @@ Current business contact is Andrew Twigg who will provide a csv of the target ar
 
 When the csv is received, open the document in gedit, and ensure that there are no strange non utf8 characters that are not recognised, if there are then return for cleansing.
 
+Also try `file -bi target_areas.csv` to check new file is utf8
+
 Then check that the fields match the following and in the correct order:
 
 "TA_CODE","TA_NAME","TA_DESC","QDIAL","TA_VERSION","state","category","AREA","TA_CREATE","TA_LASTMOD"
