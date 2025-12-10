@@ -134,7 +134,7 @@ Run this query in PgAdmin:
 Import the CSV file using the COPY command from bash terminal:
 Please note this can take several minutes to complete.
 
-PGPASSWORD=<add password here> psql -h <add prod url here> -p 5432 -U u_fws -d <add prod db name here> << 'EOF'
+PGPASSWORD={add password here} psql -h {add prod url here} -p 5432 -U u_fws -d {add prod db name here} << 'EOF'
 BEGIN;
 SET lock_timeout = '240s';
 \COPY u_fws.message (target_area_code, severity, severity_value, situation, situation_changed, severity_changed, message_received, latest, created_by_id, created_by_email, created_by_name) FROM '/tmp/historic_data_upload/input_file_final.csv' WITH (FORMAT csv, HEADER true, NULL '', QUOTE '"')
