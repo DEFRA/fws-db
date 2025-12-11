@@ -101,6 +101,8 @@ Some adjustments to the exported data have been made, these are:
 
 The following steps document the manual steps to import historic data into the FWS PostgreSQL database.
 
+**Please note: To avoid duplicate entries, this script should only be run once per set of input data to avoid importing duplicate records.**
+
 
 ### Step 1: Backup Database
 
