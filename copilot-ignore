@@ -1,0 +1,8 @@
+# Sensitive: database infrastructure setup (tablespace paths, ownership)
+fws-setup.sql
+
+# Sensitive: API key table schema (credential storage structure)
+u_fws/0.0.1/api_key.sql
+
+# Low-value: large reference data CSV (4k+ rows, no code patterns)
+target_area/target_areas.csv
